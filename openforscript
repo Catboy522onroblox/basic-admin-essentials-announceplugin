@@ -1,0 +1,26 @@
+local Plugin = function(...) 
+	local Data = {...} 
+
+	local remoteEvent = Data[1][1] 
+	local pluginName = "COMMAND NAME" -- ex. :rules 
+	local pluginPrefix = "PREFIX" -- The prefix.. ex !, :, ;
+	local pluginRank = NUMBER -- 0 = everyone, 1 = moderators 2= admins 3 = superadmins 
+	local pluginDesc = "DESCRIPTION OF COMMAND" -- Self explanatory
+
+	local InformationMessages = {"hello welcome to this place", "we offer lots of things here!"} -- seperate messages by a comma (hello welcome to this place will be posted first, then we offer lots of things here! after)
+
+	local DisplayTime = 7 --How long do you want the announcement to show before it swtiches to the next message/ends?
+
+	local pluginFunction = function(Args) 
+		local Player = Args[1]
+		for _, Message in pairs(InformationMessages) do 
+			remoteEvent:FireAllClients('Message', 'TITLE', Message) -- Title that will show when the announcement shows
+			wait(DisplayTime) 
+		end
+	end
+	pluginDesc = pluginName .. " " .. pluginDesc
+
+	return pluginName, pluginFunction, pluginRank, pluginPrefix, {pluginName, pluginDesc}
+end
+
+return Plugin
