@@ -6,3 +6,5 @@ place in the plugins folder of basic admin essentials
 will update if it breaks
 
 ensure to update the areas in the script that tell you to edit!
+
+questions? dm cat.522
